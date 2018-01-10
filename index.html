@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Content Library</title>
+	<meta name="author" content="Бедратый Эдуард Владимирович (Bedratyi Eduard)">
+	<meta name="copyright" content="Copyright © 2018 by Bedratyi Eduard">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/addContent.js"></script>
+	<script src="js/content.js"></script>
+	<script src="js/slider.js"></script>
+
+</head>
+<body>
+<!------------------------Header with Logo Registration and Social Networks -->
+<header class="header">
+	<h1 class="logo">
+		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
+	</h1>
+	<ul class="menu">
+		<li><a href="index.html">Home</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li class="menu-logIn"><a href="#">Log In</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+			<ul class="menu-reg levelZero">
+				<li class="menu-reg-drop"><a href="#">Log In</a></li>
+				<li class="menu-reg-drop"><a href="#modal-reg">Registration</a></li>
+			</ul>
+		</li>
+		<li class="menu-social">
+			<span class="menu-soc-drop"><a href="http://vk.com"><img src="images/elements/vk32.png" alt="vk.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://facebook.com"><img src="images/elements/fb32.png" alt="fb.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://linkedin.com"><img src="images/elements/li32.png" alt="linkedin.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://twitter.com"><img src="images/elements/tw32.png" alt="twitter.com"></a></span>
+		</li>
+	</ul>
+</header>
+<!-------------------------------------Navigation Menu --------------------------->
+
+<!------------------------ M O D A L    W I N D O W--------------------------------->
+<div id="modal-addContent" class="modal-window">
+	<div class="wrapper"><!---------------Internal modal window -------------------->
+		<a href="#" title="закрыть" class="close"></a>
+			<form name="addContent" id="addContent">
+				<fieldset>
+					<legend>Please fill in the fields to add Content</legend>
+					<input type="text" name="userName" class="user-name" placeholder="Please, enter Your name">
+					<input type="email" name="email" class="user-email" placeholder="Please, enter Your email" required>
+					<input type="text" name="country" class="country" placeholder="Please, enter Your country">
+					<input type="text" name="category" class="addCat-name" value="" placeholder="Please, enter Category`s name">
+					<input type="file" name="file" class="addFile-name" value="" placeholder="Please, load a File" id="addFile">
+					<textarea class="textContent" placeholder="Please, enter your text" id="textContent"></textarea>
+					<input type="reset" name="reset" class="button" value="reset">
+					<input type="submit" name="submit" class="button" value="submit" id="addContent-text-submit">
+				</fieldset>
+			</form>
+	</div>
+</div>
+<div id="modal-map" class="modal-window">
+	<div class="wrapper-map"><!---------------Internal modal window -------------------->
+		<a href="#" title="закрыть" class="close-map"></a>
+		<div class="modal-wdw-map">
+			<img src="images/elements/Glubochitskaya_72.png" alt="Ukraine, Kiev, Glubochitskaya street 72, Podol.">
+		</div>
+		<address class="address">Ukraine, Kiev, Glubochitskaya street 72, Podol.<br>
+			www.vitrum.com.ua<br>
+			www.витраж.укр<br>
+			tel.: +380(98)111-96-96<br>
+			e-mail: 0981119696.mail.ru@gmail.com<br>
+			e-mail: 0981119696@mail.ru<br>
+		</address>
+	</div>
+</div>
+<div id="modal-reg" class="modal-window">
+	<div class="wrapper-reg"><!---------------Internal modal window-------------------->
+		<a href="#" title="закрыть" class="close-reg"></a>
+		<form name="regForm" id="regForm">
+			<fieldset>
+				<legend>Please fill in the fields to registration</legend>
+				<input type="text" name="userName" class="registration" placeholder="Please, enter Your name or nickname">
+				<input type="email" name="email" class="registration" placeholder="Please, enter Your email" required>
+				<input type="tel" name="phone" class="registration" placeholder="Please, enter Your contact phone number" required>
+				<input type="password" name="password" class="registration" value="" placeholder="Please, enter password">
+				<input type="reset" name="reset" class="button" value="reset">
+				<input type="submit" name="submit" class="button" value="submit" id="reg-submit">
+			</fieldset>
+		</form>
+	</div>
+</div>
+<section class="container">
+    <nav class="nav">
+        <ul class="nav-content">
+    		<li class="menu-addContent button">
+    			<a href="#">Add CONTENT</a>
+    			<ul class="menu-addContent-drop levelOne">
+    				<li class="button"><a href="#modal-addContent" class="subCategory">add TEXT content</a></li>
+    				<li class="button"><a href="#modal-addContent" class="subCategory">add VIDEO content</a></li>
+    				<li class="button"><a href="#modal-addContent" class="subCategory">add AUDIO content</a></li>
+    			</ul>
+    		</li>
+			<li class="menu-Content button">
+				<a href="#">Discover CONTENT</a>
+				<ul class="menu-Content-drop levelOne">
+					<li class="menu-content-Category button">
+						<a href="#">All Categories</a>
+						<ul class="menu-Content-drop-allCat levelTwo">
+							<li class="menu-content-Category button"><a href="#" id="all">all types of  Content</a></li>
+							<li class="menu-content-Category button"><a href="#" id="allUserNames">Show all Names</a></li>
+							<li class="menu-content-Category button"><a href="#" id="allCategories">Show all Categories</a></li>
+							<li class="menu-content-Category button"><a href="#" id="allFiles">Show all Files list</a></li>
+						</ul>
+					</li>
+					<li class="menu-content-Category button">
+						<a href="#">Video</a>
+						<ul class="menu-Content-drop-allVideo levelTwo">
+							<li class="menu-content-Category button"><a href="#" id="allVideo">all Video content</a></li>
+							<li class="menu-content-Category button"><a href="#" id="videoUserNames">Show names</a></li>
+							<li class="menu-content-Category button"><a href="#" id="videoCategory">Show categories</a></li>
+							<li class="menu-content-Category button"><a href="#" id="videoFile">Show files list</a></li>
+						</ul>
+					</li>
+					<li class="menu-content-Category button">
+						<a href="#">Audio</a>
+						<ul class="menu-Content-drop-allAudio levelTwo">
+							<li class="menu-content-Category button"><a href="#" id="allAudio">all Audio content</a></li>
+							<li class="menu-content-Category button"><a href="#" id="audioUserNames">Show names</a></li>
+							<li class="menu-content-Category button"><a href="#" id="audioCategory">Show categories</a></li>
+							<li class="menu-content-Category button"><a href="#" id="audioFile">Show files list</a></li>
+						</ul>
+					</li>
+					<li class="menu-content-Category button">
+						<a href="#">Articles</a>
+						<ul class="menu-Content-drop-allText levelTwo">
+							<li class="menu-content-Category button"><a href="#" id="allText">all Text content</a></li>
+							<li class="menu-content-Category button"><a href="#" id="textUserNames">Show names</a></li>
+							<li class="menu-content-Category button"><a href="#" id="textCategory">Show categories</a></li>
+							<li class="menu-content-Category button"><a href="#" id="textFile">Show files list</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+    	</ul>
+    </nav>
+		<!----------------------------------------Slider ------------------------------->
+	<div class="slider">
+		<div class="slider-arrows" id="backArrow">
+			<img src="images/elements/arrow-back48.png" class="slider-arrow-left" alt="" onclick="slider.left();">
+		</div>
+		<div id="src" class="slider-photo"></div>
+		<div class="slider-arrows" id="forwardArrow">
+			<img src="images/elements/arrow-forward48.png" class="slider-arrow-right" alt="" onclick="slider.right();">
+		</div>
+	</div>
+	<!-----------------------------------Search field -------------------------------->
+	<form name="search-form" class="search-form" id="searchForm">
+		<input type="search" name="search-item" class="search-item" placeholder="search content below">
+		<input type="reset" value="reset" class="reset-btn">
+		<button class="search-btn">search</button>
+	</form>
+</section>
+<main class="main">
+	<!-----------------------------------CONTENT -------------------------------------->
+    <section class="content">
+		<div class="page">Content field. To see content please choose discover Content on the top
+		</div>
+    </section>
+	<div class="paginator" id="pagination"></div>
+	<section class="gallery">
+		<img src="images/gallery/sb70.jpg" title="sb70" alt="картинки витражей">
+		<img src="images/gallery/сн342.jpg" title="сн342" alt="картинки витражей">
+		<img src="images/gallery/422.jpg" title="422" alt="картинки витражей">
+		<img src="images/gallery/eb08.jpg" title="eb08" alt="картинки витражей">
+		<img src="images/gallery/lobak.jpg" title="lobak" alt="картинки витражей">
+		<img src="images/gallery/фж24.jpg" title="фж24" alt="картинки витражей">
+	</section>
+</main>
+<!-------------------------------------FOOTER ------------------------------------>
+<footer class="footer">
+		<h3 class="logo">
+		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
+	</h3>
+	<ul class="menu">
+		<li><a href="index.html">Home</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li class="menu-logIn"><a href="#">Log In</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+			<ul class="menu-reg levelZero">
+				<li class="menu-reg-drop"><a href="#">Log In</a></li>
+				<li class="menu-reg-drop"><a href="#modal-reg">Registration</a></li>
+			</ul>
+		</li>
+		<li class="menu-social">
+			<span class="menu-soc-drop"><a href="http://vk.com"><img src="images/elements/vk32.png" alt="vk.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://facebook.com"><img src="images/elements/fb32.png" alt="fb.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://linkedin.com"><img src="images/elements/li32.png" alt="linkedin.com"></a></span>
+			<span class="menu-soc-drop"><a href="http://twitter.com"><img src="images/elements/tw32.png" alt="twitter.com"></a></span>
+		</li>
+	</ul>
+</footer>
+</body>
+</html>
