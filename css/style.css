@@ -221,14 +221,18 @@ span {
 .slider-photo {
     background-color: #9a9a9a;
     background-size:cover;
-    border: 4px solid #9a9a9a;
+    border: 1px solid #9a9a9a;
     border-radius: 6px;
-    width: 802px;
+    width: 805px;
     height: 242px;
     margin: auto -30px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); /* black and white images*/
 }
 .slider-photo:hover {
-    border: 4px solid #12213a;
+    border: 4px solid #9a9a9a;
+    -webkit-filter: none;
+    filter: none;
 }
 .slider:hover >.slider-arrows {
   display: inline-flex;
@@ -279,7 +283,7 @@ input[placeholder = "search field"]{
     width: 100%;
     display: -webkit-flex;
     display: flex;
-    color: #9a9a9a;
+    color: #1b4564;
     /*margin: 0 auto 30px;*/
     padding: 20px 0;
     flex-direction: column;
@@ -298,24 +302,45 @@ input[placeholder = "search field"]{
     align-content: center;
     justify-content: center;
 }
+.content:hover {
+    border: 5px solid #12213a;
+    box-shadow:13px 10px 13px 0 gray;
+}
+
+.page > div p:hover {
+    font-weight: 600;
+}
 .page {
     border: 1px;
     border-radius: 6px;
     overflow: auto;
     height: 250px;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    width: 300px;
+    /*width: 80%;*/
     padding: 10px 20px;
     box-sizing: border-box;
 }
-.content:hover {
-    border: 5px solid #12213a;
-    box-shadow:13px 10px 13px 0 gray;
+/*----------------------------------PAGINATION------------------*/
+.page-block {
+    display: none;
 }
+.paginator {
+    line-height: 150%;
+    color: #1b4564;
+}
+.paginator > span {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.paginator_active {
+    font-weight: 600;
+    color: #12213a;
+}
+/*audio,
+video {
+    width: 100%;
+}*/
+/*---------------G A L L E R Y ---------------------*/
 .gallery {
     display: -webkit-flex;
     display: flex;
@@ -360,30 +385,6 @@ input[placeholder = "search field"]{
     position: relative;
     z-index: 3;
 }
-/*----------------------------------PAGINATION------------------*/
-.num {
-    display: none;
-}
-.paginator {
-    line-height: 150%;
-    color: #1b4564;
-}
-.paginator > span {
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.paginator_active {
-    font-weight: 600;
-    color: #12213a;
-}
-/*audio,
-video {
-    width: 100%;
-}*/
-/*.content > div:hover {
-    border: 5px solid #12213a;
-}*/
 /*------------------F O O T E R ---------------------------------*/
 .footer {
     width: 100%;

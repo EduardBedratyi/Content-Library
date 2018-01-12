@@ -8,9 +8,89 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<script src="js/addContent.js"></script>
+	<!--<script src="js/addContent.js"></script>-->
 	<script src="js/content.js"></script>
 	<script src="js/slider.js"></script>
+	<script>
+        window.addEventListener("load", function () {
+            window.content = {
+                audio: [{
+                    userName: 'Edd',
+                    email: 'edd@mail.ru',
+                    country: 'China',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp3"',
+                    contentType: 'audio',
+                    textContent: 'first record of audio'
+                }, {
+                    userName: 'Sofia',
+                    email: 'dd@mail.ru',
+                    country: 'Belorussia',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp3"',
+                    contentType: 'audio',
+                    textContent: 'second record of audio'
+                }, {
+                    userName: 'Mane',
+                    email: 'dud@mail.ru',
+                    country: 'Moldova',
+                    category: 'music',
+                    file: 'src="audio/depecheMode.mp3"',
+                    contentType: 'audio',
+                    textContent: 'third record of audio'
+                }],
+                video: [{
+                    userName: 'Helen',
+                    email: 'ee@mail.ru',
+                    country: 'Russia',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp4"',
+                    contentType: 'video',
+                    textContent: 'first record of video'
+                }, {
+                    userName: 'Roman',
+                    email: 'rr@mail.ru',
+                    country: 'Germany',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp4"',
+                    contentType: 'video',
+                    textContent: 'second video record'
+                }, {
+                    userName: 'Eva',
+                    email: 'eva@mail.ru',
+                    country: 'Kazahstan',
+                    category: 'music',
+                    file: 'src="audio/leps.mp3"',
+                    contentType: 'video',
+                    textContent: 'third record of video'
+                }],
+                text: [{
+                    userName: 'Vladimir',
+                    email: 'vv@mail.ru',
+                    country: 'Ukraine',
+                    category: 'music',
+                    file: 'src="audio/guf.txt"',
+                    contentType: 'text',
+                    textContent: 'first record of text'
+                }, {
+                    userName: 'Lilia',
+                    email: 'll@mail.ru',
+                    country: 'USA',
+                    category: 'music',
+                    file: 'src="audio/naPol.doc"',
+                    contentType: 'text',
+                    textContent: 'second record of text'
+                }, {userName: 'Evgenia',
+                    email: 'eevg@mail.ru',
+                    country: 'Canada',
+                    category: 'music',
+                    file: 'src="audio/Bumbox.doc"',
+                    contentType: 'text',
+                    textContent: 'third record of text'
+                }]
+            };
+        });
+	</script>
 
 </head>
 <body>
@@ -94,9 +174,9 @@
     		<li class="menu-addContent button">
     			<a href="#">Add CONTENT</a>
     			<ul class="menu-addContent-drop levelOne">
-    				<li class="button"><a href="#modal-addContent" class="subCategory">add TEXT content</a></li>
-    				<li class="button"><a href="#modal-addContent" class="subCategory">add VIDEO content</a></li>
-    				<li class="button"><a href="#modal-addContent" class="subCategory">add AUDIO content</a></li>
+    				<li class="button"><a href="#modal-addContent">add TEXT content</a></li>
+    				<li class="button"><a href="#modal-addContent">add VIDEO content</a></li>
+    				<li class="button"><a href="#modal-addContent">add AUDIO content</a></li>
     			</ul>
     		</li>
 			<li class="menu-Content button">
@@ -105,37 +185,37 @@
 					<li class="menu-content-Category button">
 						<a href="#">All Categories</a>
 						<ul class="menu-Content-drop-allCat levelTwo">
-							<li class="menu-content-Category button"><a href="#" id="all">all types of  Content</a></li>
-							<li class="menu-content-Category button"><a href="#" id="allUserNames">Show all Names</a></li>
-							<li class="menu-content-Category button"><a href="#" id="allCategories">Show all Categories</a></li>
-							<li class="menu-content-Category button"><a href="#" id="allFiles">Show all Files list</a></li>
+							<li class="button"><a href="#" id="all">all types of  Content</a></li>
+							<li class="button"><a href="#" id="allUserNames">Show all user Names</a></li>
+							<li class="button"><a href="#" id="allCategories">Show all Categories</a></li>
+							<li class="button"><a href="#" id="allFiles">Show all Files list</a></li>
 						</ul>
 					</li>
 					<li class="menu-content-Category button">
-						<a href="#">Video</a>
+						<a href="#">VIDEO</a>
 						<ul class="menu-Content-drop-allVideo levelTwo">
-							<li class="menu-content-Category button"><a href="#" id="allVideo">all Video content</a></li>
-							<li class="menu-content-Category button"><a href="#" id="videoUserNames">Show names</a></li>
-							<li class="menu-content-Category button"><a href="#" id="videoCategory">Show categories</a></li>
-							<li class="menu-content-Category button"><a href="#" id="videoFile">Show files list</a></li>
+							<li class="button"><a href="#" id="allVideo">all Video content</a></li>
+							<li class="button"><a href="#" id="videoUserNames">Show user Names</a></li>
+							<li class="button"><a href="#" id="videoCategory">Show Categories</a></li>
+							<li class="button"><a href="#" id="videoFile">Show Files list</a></li>
 						</ul>
 					</li>
 					<li class="menu-content-Category button">
-						<a href="#">Audio</a>
+						<a href="#">AUDIO</a>
 						<ul class="menu-Content-drop-allAudio levelTwo">
-							<li class="menu-content-Category button"><a href="#" id="allAudio">all Audio content</a></li>
-							<li class="menu-content-Category button"><a href="#" id="audioUserNames">Show names</a></li>
-							<li class="menu-content-Category button"><a href="#" id="audioCategory">Show categories</a></li>
-							<li class="menu-content-Category button"><a href="#" id="audioFile">Show files list</a></li>
+							<li class="button"><a href="#" id="allAudio">all Audio content</a></li>
+							<li class="button"><a href="#" id="audioUserNames">Show user Names</a></li>
+							<li class="button"><a href="#" id="audioCategory">Show Categories</a></li>
+							<li class="button"><a href="#" id="audioFile">Show Files list</a></li>
 						</ul>
 					</li>
 					<li class="menu-content-Category button">
-						<a href="#">Articles</a>
+						<a href="#">TEXT</a>
 						<ul class="menu-Content-drop-allText levelTwo">
-							<li class="menu-content-Category button"><a href="#" id="allText">all Text content</a></li>
-							<li class="menu-content-Category button"><a href="#" id="textUserNames">Show names</a></li>
-							<li class="menu-content-Category button"><a href="#" id="textCategory">Show categories</a></li>
-							<li class="menu-content-Category button"><a href="#" id="textFile">Show files list</a></li>
+							<li class="button"><a href="#" id="allText">all Text content</a></li>
+							<li class="button"><a href="#" id="textUserNames">Show user Names</a></li>
+							<li class="button"><a href="#" id="textCategory">Show Categories</a></li>
+							<li class="button"><a href="#" id="textFile">Show Files list</a></li>
 						</ul>
 					</li>
 				</ul>
