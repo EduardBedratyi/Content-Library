@@ -79,23 +79,23 @@ jQuery(document).ready(function () {
     var showPage = function(array) {
         var count = array.length; //number of all entries
         var cnt = 7; //every page entries
-        var cnt_page = Math.ceil(count / cnt); //number of pages
+        var cnt_page = Math.ceil(count/cnt); //number of pages
 
 //list of pages
         var paginator = document.querySelector(".paginator");
         var page = "";
         /*var page = "<span>&laquo;</span>";*/
         for (var i = 0; i < cnt_page; i++) {
-            page += "<span data-page=" + i * cnt + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";/*
-             divide the entire list of pages, for example, 5 records per page and assigning each page its own id and the number (i + 1)*/
+            page += "<span data-page=" + i * cnt + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";
+            /*divide the entire list of pages, for example, 5 records per page and assigning each page its own id and the number (i + 1)*/
         }
         paginator.innerHTML = page;
 
 //first 7 entries {cnt}
         var div_num = document.querySelectorAll(".page-block");
-        for (var i = 0; i < div_num.length; i++) {
-            if (i < cnt) {
-                div_num[i].style.display = "block";
+        for (var t = 0; t < div_num.length; t++) {
+            if (t < cnt) {
+                div_num[t].style.display = "block";
             }
         }
         /*set class "paginator_active" to first page*/
@@ -103,14 +103,13 @@ jQuery(document).ready(function () {
         main_page.classList.add("paginator_active");
 
         /*listing function*/
-        pagination_procesing = function (event) {
+        pagination_processing = function (event) {
             var e = event || window.event;
             var target = e.target;
             var id = target.id;
 
             if (target.tagName.toLowerCase() !== "span") return;
 
-            /*var num_ = id.substr(4);*/
             var data_page = +target.dataset.page;
             main_page.classList.remove("paginator_active");
             main_page = document.getElementById(id);
@@ -126,210 +125,203 @@ jQuery(document).ready(function () {
             }
         }
     };
-    var pagination_procesing;
+    var pagination_processing;
     /*click listing function*/
     $('#pagination').click(function (event) {
-        if(pagination_procesing){
-            pagination_procesing(event);
+        if(pagination_processing){
+            pagination_processing(event);
         }
     });
     /* -----------------------DISCOVER ALL VIDEO AUDIO TEXT---------------------*/
 
-    var get = function(id) {
+    var getId = function(id) {
         return document.getElementById(id);
     };
 
-    /*var typeArray = function(type){
+    /*------------------------------DISCOVER CONTENT--------------*/
+    function discover_content(id,type,callback){
+        var element = getId(id);
+        if(element && element.addEventListener){
+            element.addEventListener("click", function(){
+                var new_array = [];
+                if (type){
+                    for (var k in window.content[type]){
+                        new_array.push(window.content[type][k])
+                    }
+                }
+                else {
+                    for (var n in window.content){
+                        for (var k in window.content[n]){
+                            new_array.push(window.content[n][k])
+                        }
+                    }
+                }
+                callback(new_array);
+                displayBtn(id);
+            },false);
+        }
+    }
+    discover_content("all","",html_creator_content);
+    /*var discoverAll = getId("all");
+     if(discoverAll.addEventListener){
+     discoverAll.addEventListener("click", function(e) {
+     e.preventDefault();
      var new_array = [];
-     for (var k in window.content[type]) {
-     new_array.push(window.content[type][k]);
+     for (var n in window.content) {
+     for (var k in window.content[n]) {
+     new_array.push(window.content[n][k]);
      }
-     return new_array;
-     };*/
+     }
+     html_creator_content(new_array);
+     },false);
+     }*/
+    discover_content("allUserNames","",html_creator_userNames);
 
-    var discoverAll = get("all");
-    if(discoverAll.addEventListener){
-        discoverAll.addEventListener("click", function(e) {
-            e.preventDefault();
-            var new_array = [];
-            for (var n in window.content) {
-                for (var k in window.content[n]) {
-                    new_array.push(window.content[n][k]);
-                }
-            }
-            html_creator_content(new_array);
-        },false);
-    }
+    discover_content("allCategories","",html_creator_category);
 
-    var allNames = get("allUserNames");
-    if(allNames.addEventListener){
-        allNames.addEventListener("click", function() {
-            var new_array = [];
-            for (var n in window.content) {
-                for (var k in window.content[n]) {
-                    new_array.push(window.content[n][k]);
-                }
-            }
-            html_creator_userNames(new_array);
-        },false);
-    }
+    discover_content("allFiles","",html_creator_filePath);
 
-    var allCategories = get("allCategories");
-    if(allCategories.addEventListener){
-        allCategories.addEventListener("click", function() {
-            var new_array = [];
-            for (var n in window.content) {
-                for (var k in window.content[n]) {
-                    new_array.push(window.content[n][k]);
-                }
-            }
-            html_creator_category(new_array);
-        },false);
-    }
-
-    var allFiles = get("allFiles");
-    if(allFiles.addEventListener){
-        allFiles.addEventListener("click", function() {
-            var new_array = [];
-            for (var n in window.content) {
-                for (var k in window.content[n]) {
-                    new_array.push(window.content[n][k]);
-                }
-            }
-            html_creator_filePath(new_array);
-        },false);
-    }
     /*----------------------------------discover VIDEO--------------*/
-    var discoverVideo = get("allVideo");
-    if(discoverVideo.addEventListener){
-        discoverVideo.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.video) {
-                new_array.push(window.content.video[k]);
-            }
-            html_creator_content(new_array);
-        },false);
-    }
+    discover_content("allVideo","video",html_creator_content);
+    /*var discoverVideo = getId("allVideo");
+     if(discoverVideo.addEventListener){
+     discoverVideo.addEventListener("click", function() {
+     var new_array = [];
+     for (var k in window.content.video) {
+     new_array.push(window.content.video[k]);
+     }
+     html_creator_content(new_array);
+     },false);
+     }*/
 
-    var videoNames = get("videoUserNames");
-    if(videoNames.addEventListener){
-        videoNames.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.video) {
-                new_array.push(window.content.video[k]);
-            }
-            html_creator_userNames(new_array);
-        },false);
-    }
+    discover_content("videoUserNames","video",html_creator_userNames);
 
-    var videoCat = get("videoCategory");
-    if(videoCat.addEventListener){
-        videoCat.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.video) {
-                new_array.push(window.content.video[k]);
-            }
-            html_creator_category(new_array);
-        },false);
-    }
+    discover_content("videoCategory","video",html_creator_category);
 
-    var videoFile = get("videoFile");
-    if(videoFile.addEventListener){
-        videoFile.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.video) {
-                new_array.push(window.content.video[k]);
-            }
-            html_creator_filePath(new_array);
-        },false);
-    }
+    discover_content("videoFile","video",html_creator_filePath);
+
 
     /*----------------------------------discover AUDIO--------------*/
-    var discoverAudio = get("allAudio");
-    if(discoverAudio.addEventListener){
-        discoverAudio.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.audio) {
-                new_array.push(window.content.audio[k]);
-            }
-            html_creator_content(new_array);
-        },false);
-    }
+    discover_content("allAudio","audio",html_creator_content);
 
-    var audioNames = get("audioUserNames");
-    if(audioNames.addEventListener){
-        audioNames.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.audio) {
-                new_array.push(window.content.audio[k]);
-            }
-            html_creator_userNames(new_array);
-        },false);
-    }
+    discover_content("audioUserNames","audio",html_creator_userNames);
 
-    var audioCat = get("audioCategory");
-    if(audioCat.addEventListener){
-        audioCat.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.audio) {
-                new_array.push(window.content.audio[k]);
-            }
-            html_creator_category(new_array);
-        },false);
-    }
+    discover_content("audioCategory","audio",html_creator_category);
 
-    var audioFile = get("audioFile");
-    if(audioFile.addEventListener){
-        audioFile.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.audio) {
-                new_array.push(window.content.audio[k]);
-            }
-            html_creator_filePath(new_array);
-        },false);
-    }
+    discover_content("audioFile","audio",html_creator_filePath);
+
     /*----------------------------------discover TEXT--------------*/
-    var discoverText = get("allText");
-    if(discoverText.addEventListener){
-        discoverText.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.text) {
-                new_array.push(window.content.text[k]);
-            }
-            html_creator_content(new_array);
-        },false);
+    discover_content("allText","text",html_creator_content);
+
+    discover_content("textUserNames","text",html_creator_userNames);
+
+    discover_content("textCategory","text",html_creator_category);
+
+    discover_content("textFile","text",html_creator_filePath);
+    /*--------------------------------SORTING--------------*/
+
+    /*var arrSorted;
+     $('#contSort').click(function(){
+     var arrSorted = array.slice().sort();
+     });
+     if (arrSorted !== undefined){
+     var currentArray = arrSorted;
+     }
+     else {
+     currentArray = array;
+     }*/
+    /*-----------------SORTING by userName---------------*/
+    function sortByUserNameFunc (a, b){
+        return a.userName > b.userName;
     }
 
-    var textNames = get("textUserNames");
-    if(textNames.addEventListener){
-        textNames.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.text) {
-                new_array.push(window.content.text[k]);
-            }
-            html_creator_userNames(new_array);
-        },false);
+    function sortByNames(id,type,callback){
+        var element = getId(id);
+        if (element && element.addEventListener){
+            element.addEventListener("click", function(){
+                var new_array = [];
+                if(type){
+                    for(var k in window.content[type]){
+                        new_array.push(window.content[type][k]);
+                    }
+                }
+                else{
+                    for(var n in window.content){
+                        for(var k in window.content[n]){
+                            new_array.push(window.content[n][k]);
+                        }
+                    }
+                }
+                callback(new_array.sort(sortByUserNameFunc));
+            },false)
+        }
+    }
+    sortByNames("sortAllByUserName","",html_creator_userNames);
+    sortByNames("sortVideoByUserName","video",html_creator_userNames);
+    sortByNames("sortAudioByUserName","audio",html_creator_userNames);
+    sortByNames("sortTextByUserName","text",html_creator_userNames);
+    /*var sortByUserName = getId("sortByUserName");
+     if(sortByUserName.addEventListener){
+     sortByUserName.addEventListener("click", function(){
+     var new_array = [];
+     for (var k in window.content.video) {
+     new_array.push(window.content.video[k]);
+     }
+     html_creator_userNames(window.content.video.sort(sortByUserNameFunc));
+     },false);
+     }*/
+
+    /*---function for displaying sorting buttons-------*/
+    /*function displayBtn(id){
+     if (id === "allUserNames"){
+     var allBtn = getId("sortAllByUserName");
+     allBtn.style.visibility = "visible";
+     }
+     if (id === "videoUserNames"){
+     var videoBtn = getId("sortVideoByUserName");
+     videoBtn.style.visibility = "visible";
+     }
+     if (id === "audioUserNames"){
+     var audioBtn = getId("sortAudioByUserName");
+     audioBtn.style.visibility = "visible";
+     }
+     if (id === "textUserNames"){
+     var textBtn = getId("sortTextByUserName");
+     textBtn.style.visibility = "visible";
+     }
+     }*/
+
+    function displayBtn(id){
+        var allBtn = getId("sortAllByUserName");
+        var videoBtn = getId("sortVideoByUserName");
+        var audioBtn = getId("sortAudioByUserName");
+        var textBtn = getId("sortTextByUserName");
+        if (id === "allUserNames"){
+            allBtn.style.display = "block";
+            videoBtn.style.display = "none";
+            audioBtn.style.display = "none";
+            textBtn.style.display = "none";
+        }
+        if (id === "videoUserNames"){
+            videoBtn.style.display = "block";
+            audioBtn.style.display = "none";
+            textBtn.style.display = "none";
+            allBtn.style.display = "none";
+        }
+        if (id === "audioUserNames"){
+            audioBtn.style.display = "block";
+            textBtn.style.display = "none";
+            allBtn.style.display = "none";
+            videoBtn.style.display = "none";
+        }
+        if (id === "textUserNames"){
+            textBtn.style.display = "block";
+            allBtn.style.display = "none";
+            videoBtn.style.display = "none";
+            audioBtn.style.display = "none";
+        }
     }
 
-    var textCat = get("textCategory");
-    if(textCat.addEventListener){
-        textCat.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.text) {
-                new_array.push(window.content.text[k]);
-            }
-            html_creator_category(new_array);
-        },false);
-    }
 
-    var textFile = get("textFile");
-    if(textFile.addEventListener){
-        textFile.addEventListener("click", function() {
-            var new_array = [];
-            for (var k in window.content.text) {
-                new_array.push(window.content.text[k]);
-            }
-            html_creator_filePath(new_array);
-        },false);
-    }
+
 });

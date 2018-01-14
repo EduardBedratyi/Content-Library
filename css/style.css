@@ -65,6 +65,7 @@ ul {
 }
 .menu > li {
     margin: auto 20px;
+    line-height: 1.5;
 }
 span {
     margin-left: 20px;
@@ -106,7 +107,6 @@ span {
 }
 /*---------------- C A T E G O R Y ------------------*/
 .container {
-    /*border: 1px solid yellow;*/
     width: 100%;
     max-width: 960px;
     min-width: 320px;
@@ -130,7 +130,6 @@ span {
 .menu-addContent,
 .menu-Content {
     border: 1px solid #9a9a9a;
-    /*width: 374px;*/
     margin: 10px 0;
 	height: 40px;
     position: relative;
@@ -202,30 +201,42 @@ span {
     justify-content: center;
     height: auto;
     margin: 20px 0 0;
-    box-sizing: border-box;
 }
 #forwardArrow {
-    right: 20px;
+    right: 30px;
+}
+#backArrow {
+    left: 30px;
 }
 .slider-arrows {
+    background-color: rgba(80,80,80,0.4);
     display: none;
-    width: 28px;
-    height: 49px;
+    width: 48px;
+    height: 48px;
     position: relative;
+    z-index: 50;
 }
 .slider-arrows:hover {
-    -ms-transform: scale(1.3);
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+.slider:hover > div {
+    -webkit-filter: none;
+    filter: none;
+}
+.slider:hover >.slider-arrows {
+  display: block;
 }
 .slider-photo {
     background-color: #9a9a9a;
-    background-size:cover;
+    background-size: cover;
     border: 1px solid #9a9a9a;
     border-radius: 6px;
     width: 805px;
     height: 242px;
     margin: auto -30px;
+    z-index: 1;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); /* black and white images*/
 }
@@ -233,9 +244,6 @@ span {
     border: 4px solid #9a9a9a;
     -webkit-filter: none;
     filter: none;
-}
-.slider:hover >.slider-arrows {
-  display: inline-flex;
 }
 /*----------------- S E A R C H -------------------*/
 .search-form {
@@ -287,7 +295,7 @@ input[placeholder = "search field"]{
     /*margin: 0 auto 30px;*/
     padding: 20px 0;
     flex-direction: column;
-    flex-grow: 1; /*прижимаем footer к низу*/
+    /*flex-grow: 1; *//*прижимаем footer к низу*/
     justify-content: space-around;
     align-items: center;
 }
@@ -315,9 +323,19 @@ input[placeholder = "search field"]{
     border-radius: 6px;
     overflow: auto;
     height: 250px;
-    /*width: 80%;*/
+    float: left;
+    width: 70%;
     padding: 10px 20px;
     box-sizing: border-box;
+}
+.sort-button-block {
+    width: 30%;
+}
+.sort-btn {
+    display: none;
+    height: 40px;
+    border: 1px solid #9a9a9a;
+    min-width: 218px;
 }
 /*----------------------------------PAGINATION------------------*/
 .page-block {
@@ -539,9 +557,9 @@ legend {
 /*-------------------------B U T T O N S--------------------------*/
 .button,
 .search-btn,
-.reset-btn {
+.reset-btn,
+.sort-btn{
     background: linear-gradient(#1b4564 ,#12213a);
-    box-shadow:17px 12px 18px 0 black;
     color: #9a9a9a;
     font-size: 15px;
     text-align: center;
@@ -550,16 +568,19 @@ legend {
 }
 .button:hover,
 .search-btn:hover,
-.reset-btn:hover {
+.reset-btn:hover,
+.sort-btn:hover {
     cursor: pointer;
     color: #fff;
+    box-shadow:9px 6px 9px 0 black;
     /*font-weight:bold;*/
     /*opacity:1;*/
 }
 .button:active,
 .search-btn:active,
-.reset-btn:active {
-    box-shadow:5px 8px 10px 0 black;
+.reset-btn:active,
+.sort-btn:active {
+    box-shadow:4px 3px 6px 0 black;
     font-size: 14px;
     text-decoration: none;
     text-shadow: none;
@@ -586,6 +607,15 @@ legend {
         align-content: center;
         justify-content: center;
     }
+    .line {
+        display: none;
+    }
+    .menu-addContent {
+        border-right: 1px solid #9a9a9a;
+    }
+    .menu-Content {
+        border-left: 1px solid #9a9a9a;
+    }
 }
 
 @media screen and (max-width: 460px){
@@ -596,5 +626,13 @@ legend {
     .content {
         width: 460px;
     }
-
+    .line {
+        display: none;
+    }
+    .menu-addContent {
+        border-right: 1px solid #9a9a9a;
+    }
+    .menu-Content {
+        border-left: 1px solid #9a9a9a;
+    }
 }

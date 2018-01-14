@@ -11,13 +11,13 @@ jQuery(document).ready(function () {
             /*-----------------to prevent sending form data*/
             e.preventDefault();
 
-            var adderName = addForm.userName.value;
-            var adderEmail = addForm.email.value;
-            var addCountry = addForm.country.value;
-            var addCategory = addForm.category.value;
-            var addFile = addForm.file.value;
+            var adderName = addForm.userName.toLowerCase().value;
+            var adderEmail = addForm.email.toLowerCase().value;
+            var addCountry = addForm.country.toLowerCase().value;
+            var addCategory = addForm.category.toLowerCase().value;
+            var addFile = addForm.file.toLowerCase().value;
             var contentType = getFileType();
-            var addText = $('#textContent').val();
+            var addText = $('#textContent').toLowerCase().val();
             /*-----------------filing each object every type of content*/
             var entry = {
                 userName: adderName,

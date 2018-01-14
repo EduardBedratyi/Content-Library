@@ -100,9 +100,9 @@
 		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
 	</h1>
 	<ul class="menu">
-		<li><a href="index.html">Home</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
-		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
-		<li class="menu-logIn"><a href="#">Log In</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+		<li><a href="index.html">Home</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li class="menu-logIn"><a href="#">Log In</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span>
 			<ul class="menu-reg levelZero">
 				<li class="menu-reg-drop"><a href="#">Log In</a></li>
 				<li class="menu-reg-drop"><a href="#modal-reg">Registration</a></li>
@@ -225,11 +225,11 @@
 		<!----------------------------------------Slider ------------------------------->
 	<div class="slider">
 		<div class="slider-arrows" id="backArrow">
-			<img src="images/elements/arrow-back48.png" class="slider-arrow-left" alt="" onclick="slider.left();">
+			<img src="images/elements/arrow-back48.png" alt="" onclick="slider.left();">
 		</div>
 		<div id="src" class="slider-photo"></div>
 		<div class="slider-arrows" id="forwardArrow">
-			<img src="images/elements/arrow-forward48.png" class="slider-arrow-right" alt="" onclick="slider.right();">
+			<img src="images/elements/arrow-forward48.png" alt="" onclick="slider.right();">
 		</div>
 	</div>
 	<!-----------------------------------Search field -------------------------------->
@@ -242,7 +242,14 @@
 <main class="main">
 	<!-----------------------------------CONTENT -------------------------------------->
     <section class="content">
-		<div class="page">Content field. To see content please choose discover Content on the top
+		<div class="sort-button-block">
+			<button class="sort-btn" id="sortAllByUserName">names of all content A to Z</button>
+			<button class="sort-btn" id="sortVideoByUserName">names of Video content A to Z</button>
+			<button class="sort-btn" id="sortAudioByUserName">names of Audio content A to Z</button>
+			<button class="sort-btn" id="sortTextByUserName">names of Text content A to Z</button>
+		</div>
+		<div class="page">Content field. To see content please choose discover Content on the top.
+
 		</div>
     </section>
 	<div class="paginator" id="pagination"></div>
@@ -261,9 +268,9 @@
 		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
 	</h3>
 	<ul class="menu">
-		<li><a href="index.html">Home</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
-		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
-		<li class="menu-logIn"><a href="#">Log In</a><span>&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+		<li><a href="index.html">Home</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+		<li class="menu-logIn"><a href="#">Log In</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span>
 			<ul class="menu-reg levelZero">
 				<li class="menu-reg-drop"><a href="#">Log In</a></li>
 				<li class="menu-reg-drop"><a href="#modal-reg">Registration</a></li>
