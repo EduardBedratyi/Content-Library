@@ -70,9 +70,6 @@ ul {
 span {
     margin-left: 20px;
 }
-/*.menu li:hover > span{
-    display: none;
-}*/
 .logo {
     font-weight: 100;
     text-transform: uppercase;
@@ -354,30 +351,47 @@ input[placeholder = "search field"]{
     font-weight: 600;
     color: #12213a;
 }
-/*audio,
-video {
-    width: 100%;
-}*/
 /*---------------G A L L E R Y ---------------------*/
 .gallery {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    max-width: 810px;
+    max-width: 816px;
+    margin-top: 20px;
 }
-.gallery img {
+.gallery-container {
+    width: 1632px;
+    height: 240px;
+    position: relative;
+    transition: left 2s;
+}
+.gallery-wrapper {
+    float: left;
+    width: 720px;
+    overflow: hidden;
+}
+.gallery-wrapper input[type="radio"] {
+    display: none;
+}
+.gallery-arrow1,
+.gallery-arrow2 {
+    float: left;
+}
+input[id="gallery-first"]:checked ~ div.gallery-container {
+    left: 0;
+}
+input[id="gallery-second"]:checked ~ div.gallery-container {
+    left: -720px;
+}
+.gallery-img {
+    float: left;
     border: 1px;
     border-radius: 6px;
     overflow: hidden;
     width: 230px;
     height: 230px;
-    margin-top: 20px;
+    margin: 5px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); /* black and white images*/
 }
-.gallery img:hover {
+.gallery-img:hover {
     /*border: 5px solid #12213a;*/
     box-shadow:13px 10px 13px 0 gray;
     -webkit-filter: none;
@@ -389,7 +403,7 @@ video {
     position: relative;
     z-index: 2;
 }
-.gallery img:active {
+.gallery-img:active {
     box-shadow: none;
     -moz-transition: all 2s;
     -o-transition: all 2s;
@@ -616,6 +630,15 @@ legend {
     .menu-Content {
         border-left: 1px solid #9a9a9a;
     }
+    .gallery {
+        max-width: 576px;
+    }
+    .gallery-wrapper {
+        width: 480px;
+    }
+    input[id="gallery-second"]:checked ~ div.gallery-container {
+        left: -480px;
+    }
 }
 
 @media screen and (max-width: 460px){
@@ -634,5 +657,14 @@ legend {
     }
     .menu-Content {
         border-left: 1px solid #9a9a9a;
+    }
+    .gallery {
+        max-width: 336px;
+    }
+    .gallery-wrapper {
+        width: 240px;
+    }
+    input[id="gallery-second"]:checked ~ div.gallery-container {
+        left: -240px;
     }
 }

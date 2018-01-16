@@ -87,18 +87,17 @@ jQuery(document).ready(function () {
         /*var page = "<span>&laquo;</span>";*/
         for (var i = 0; i < cnt_page; i++) {
             page += "<span data-page=" + i * cnt + "  id=\"page" + (i + 1) + "\">" + (i + 1) + "</span>";
-            /*divide the entire list of pages, for example, 5 records per page and assigning each page its own id and the number (i + 1)*/
         }
         paginator.innerHTML = page;
 
-//first 7 entries {cnt}
+
         var div_num = document.querySelectorAll(".page-block");
         for (var t = 0; t < div_num.length; t++) {
             if (t < cnt) {
                 div_num[t].style.display = "block";
             }
         }
-        /*set class "paginator_active" to first page*/
+
         var main_page = document.getElementById("page1");
         main_page.classList.add("paginator_active");
 
@@ -126,7 +125,7 @@ jQuery(document).ready(function () {
         }
     };
     var pagination_processing;
-    /*click listing function*/
+
     $('#pagination').click(function (event) {
         if(pagination_processing){
             pagination_processing(event);
@@ -162,19 +161,7 @@ jQuery(document).ready(function () {
         }
     }
     discover_content("all","",html_creator_content);
-    /*var discoverAll = getId("all");
-     if(discoverAll.addEventListener){
-     discoverAll.addEventListener("click", function(e) {
-     e.preventDefault();
-     var new_array = [];
-     for (var n in window.content) {
-     for (var k in window.content[n]) {
-     new_array.push(window.content[n][k]);
-     }
-     }
-     html_creator_content(new_array);
-     },false);
-     }*/
+
     discover_content("allUserNames","",html_creator_userNames);
 
     discover_content("allCategories","",html_creator_category);
@@ -183,16 +170,6 @@ jQuery(document).ready(function () {
 
     /*----------------------------------discover VIDEO--------------*/
     discover_content("allVideo","video",html_creator_content);
-    /*var discoverVideo = getId("allVideo");
-     if(discoverVideo.addEventListener){
-     discoverVideo.addEventListener("click", function() {
-     var new_array = [];
-     for (var k in window.content.video) {
-     new_array.push(window.content.video[k]);
-     }
-     html_creator_content(new_array);
-     },false);
-     }*/
 
     discover_content("videoUserNames","video",html_creator_userNames);
 
@@ -218,18 +195,7 @@ jQuery(document).ready(function () {
     discover_content("textCategory","text",html_creator_category);
 
     discover_content("textFile","text",html_creator_filePath);
-    /*--------------------------------SORTING--------------*/
 
-    /*var arrSorted;
-     $('#contSort').click(function(){
-     var arrSorted = array.slice().sort();
-     });
-     if (arrSorted !== undefined){
-     var currentArray = arrSorted;
-     }
-     else {
-     currentArray = array;
-     }*/
     /*-----------------SORTING by userName---------------*/
     function sortByUserNameFunc (a, b){
         return a.userName > b.userName;
@@ -260,36 +226,8 @@ jQuery(document).ready(function () {
     sortByNames("sortVideoByUserName","video",html_creator_userNames);
     sortByNames("sortAudioByUserName","audio",html_creator_userNames);
     sortByNames("sortTextByUserName","text",html_creator_userNames);
-    /*var sortByUserName = getId("sortByUserName");
-     if(sortByUserName.addEventListener){
-     sortByUserName.addEventListener("click", function(){
-     var new_array = [];
-     for (var k in window.content.video) {
-     new_array.push(window.content.video[k]);
-     }
-     html_creator_userNames(window.content.video.sort(sortByUserNameFunc));
-     },false);
-     }*/
 
     /*---function for displaying sorting buttons-------*/
-    /*function displayBtn(id){
-     if (id === "allUserNames"){
-     var allBtn = getId("sortAllByUserName");
-     allBtn.style.visibility = "visible";
-     }
-     if (id === "videoUserNames"){
-     var videoBtn = getId("sortVideoByUserName");
-     videoBtn.style.visibility = "visible";
-     }
-     if (id === "audioUserNames"){
-     var audioBtn = getId("sortAudioByUserName");
-     audioBtn.style.visibility = "visible";
-     }
-     if (id === "textUserNames"){
-     var textBtn = getId("sortTextByUserName");
-     textBtn.style.visibility = "visible";
-     }
-     }*/
 
     function displayBtn(id){
         var allBtn = getId("sortAllByUserName");
@@ -321,7 +259,4 @@ jQuery(document).ready(function () {
             audioBtn.style.display = "none";
         }
     }
-
-
-
 });

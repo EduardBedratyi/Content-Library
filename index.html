@@ -8,90 +8,9 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<!--<script src="js/addContent.js"></script>-->
+	<script src="js/addContent.js"></script>
 	<script src="js/content.js"></script>
 	<script src="js/slider.js"></script>
-	<script>
-        window.addEventListener("load", function () {
-            window.content = {
-                audio: [{
-                    userName: 'Edd',
-                    email: 'edd@mail.ru',
-                    country: 'China',
-                    category: 'music',
-                    file: 'src="audio/guf_naPol.mp3"',
-                    contentType: 'audio',
-                    textContent: 'first record of audio'
-                }, {
-                    userName: 'Sofia',
-                    email: 'dd@mail.ru',
-                    country: 'Belorussia',
-                    category: 'music',
-                    file: 'src="audio/guf_naPol.mp3"',
-                    contentType: 'audio',
-                    textContent: 'second record of audio'
-                }, {
-                    userName: 'Mane',
-                    email: 'dud@mail.ru',
-                    country: 'Moldova',
-                    category: 'music',
-                    file: 'src="audio/depecheMode.mp3"',
-                    contentType: 'audio',
-                    textContent: 'third record of audio'
-                }],
-                video: [{
-                    userName: 'Helen',
-                    email: 'ee@mail.ru',
-                    country: 'Russia',
-                    category: 'music',
-                    file: 'src="audio/guf_naPol.mp4"',
-                    contentType: 'video',
-                    textContent: 'first record of video'
-                }, {
-                    userName: 'Roman',
-                    email: 'rr@mail.ru',
-                    country: 'Germany',
-                    category: 'music',
-                    file: 'src="audio/guf_naPol.mp4"',
-                    contentType: 'video',
-                    textContent: 'second video record'
-                }, {
-                    userName: 'Eva',
-                    email: 'eva@mail.ru',
-                    country: 'Kazahstan',
-                    category: 'music',
-                    file: 'src="audio/leps.mp3"',
-                    contentType: 'video',
-                    textContent: 'third record of video'
-                }],
-                text: [{
-                    userName: 'Vladimir',
-                    email: 'vv@mail.ru',
-                    country: 'Ukraine',
-                    category: 'music',
-                    file: 'src="audio/guf.txt"',
-                    contentType: 'text',
-                    textContent: 'first record of text'
-                }, {
-                    userName: 'Lilia',
-                    email: 'll@mail.ru',
-                    country: 'USA',
-                    category: 'music',
-                    file: 'src="audio/naPol.doc"',
-                    contentType: 'text',
-                    textContent: 'second record of text'
-                }, {userName: 'Evgenia',
-                    email: 'eevg@mail.ru',
-                    country: 'Canada',
-                    category: 'music',
-                    file: 'src="audio/Bumbox.doc"',
-                    contentType: 'text',
-                    textContent: 'third record of text'
-                }]
-            };
-        });
-	</script>
-
 </head>
 <body>
 <!------------------------Header with Logo Registration and Social Networks -->
@@ -253,13 +172,28 @@
 		</div>
     </section>
 	<div class="paginator" id="pagination"></div>
+
 	<section class="gallery">
-		<img src="images/gallery/sb70.jpg" title="sb70" alt="картинки витражей">
-		<img src="images/gallery/сн342.jpg" title="сн342" alt="картинки витражей">
-		<img src="images/gallery/422.jpg" title="422" alt="картинки витражей">
-		<img src="images/gallery/eb08.jpg" title="eb08" alt="картинки витражей">
-		<img src="images/gallery/lobak.jpg" title="lobak" alt="картинки витражей">
-		<img src="images/gallery/фж24.jpg" title="фж24" alt="картинки витражей">
+		<div class="gallery-arrow1"><label for="gallery-second"><img src="images/elements/arrow-back48.png" alt="" /></label></div>
+		<div class="gallery-wrapper">
+
+			<input type="radio" id="gallery-first" name="slider" value="gallery-first" checked>
+			<input type="radio" id="gallery-second" name="slider" value="gallery-second" >
+
+			<div class="gallery-container">
+				<div class="gallery-container-first">
+					<img src="images/gallery/sb70.jpg" title="sb70" class="gallery-img" alt="картинки витражей">
+					<img src="images/gallery/сн342.jpg" title="сн342" class="gallery-img" alt="картинки витражей">
+					<img src="images/gallery/422.jpg" title="422" class="gallery-img" alt="картинки витражей">
+				</div>
+				<div class="gallery-container-second">
+					<img src="images/gallery/eb08.jpg" title="eb08" class="gallery-img" alt="картинки витражей">
+					<img src="images/gallery/lobak.jpg" title="lobak" class="gallery-img" alt="картинки витражей">
+					<img src="images/gallery/фж24.jpg" title="фж24" class="gallery-img" alt="картинки витражей">
+				</div>
+			</div>
+		</div>
+		<div class="gallery-arrow2"><label for="gallery-first"><img src="images/elements/arrow-forward48.png" alt=""></label></div>
 	</section>
 </main>
 <!-------------------------------------FOOTER ------------------------------------>
