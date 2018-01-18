@@ -15,7 +15,8 @@
 <body>
 <!------------------------Header with Logo Registration and Social Networks -->
 <header class="header">
-	<h1 class="logo">
+	<!-----------------------------------site-Search field -------------------------------->
+		<h1 class="logo">
 		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
 	</h1>
 	<ul class="menu">
@@ -35,6 +36,11 @@
 		</li>
 	</ul>
 </header>
+<form name="site-search-form" class="site-search-form" id="site-search">
+	<input type="search" name="search-item" class="site-search-item" placeholder="search">
+	<input type="reset" value="reset" class="site-search-btn">
+	<input type="button" class="site-search-btn" value="search">
+</form>
 <!-------------------------------------Navigation Menu --------------------------->
 
 <!------------------------ M O D A L    W I N D O W--------------------------------->
@@ -172,14 +178,15 @@
 		</div>
     </section>
 	<div class="paginator" id="pagination"></div>
-
+<!------------------------------GALLERY--------------------------------->
 	<section class="gallery">
-		<div class="gallery-arrow1"><label for="gallery-second"><img src="images/elements/arrow-back48.png" alt="" /></label></div>
+		<div class="gallery-arrows" id="leftArrow">
+			<label for="gallery-second"><img src="images/elements/arrow-back48.png" alt="">
+		</label>
+		</div>
 		<div class="gallery-wrapper">
-
 			<input type="radio" id="gallery-first" name="slider" value="gallery-first" checked>
-			<input type="radio" id="gallery-second" name="slider" value="gallery-second" >
-
+			<input type="radio" id="gallery-second" name="slider" value="gallery-second">
 			<div class="gallery-container">
 				<div class="gallery-container-first">
 					<img src="images/gallery/sb70.jpg" title="sb70" class="gallery-img" alt="картинки витражей">
@@ -193,7 +200,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="gallery-arrow2"><label for="gallery-first"><img src="images/elements/arrow-forward48.png" alt=""></label></div>
+		<div class="gallery-arrows" id="rightArrow"><label for="gallery-first"><img src="images/elements/arrow-forward48.png" alt=""></label></div>
 	</section>
 </main>
 <!-------------------------------------FOOTER ------------------------------------>

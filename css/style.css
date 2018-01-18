@@ -8,7 +8,7 @@ html {
 body {
     background: #1b4564;
     margin: 0;
-    padding: 0 15px;
+    padding: 0;
     display: -webkit-flex;
     display: flex;
     flex-direction: column;
@@ -43,6 +43,35 @@ a:hover {
 }
 ul {
     list-style: none;
+}
+/*--------------------------site-Search field --------*/
+.site-search-form {
+    border: 1px solid #12213a;
+    position: absolute;
+    max-width: 300px;
+    top: 15px;
+    right: 30px;
+}
+.site-search-btn {
+    color: #1b4564;
+    width: auto;
+}
+.site-search-form input {
+    border: 1px;
+    background: #1b4564;
+    text-align: right;
+}
+.site-search-item:hover {
+    background: #ccc;
+    border: 1px;
+    color: #1b4564;
+    font-weight: 400;
+}
+.site-search-item:focus {
+    background: #fff;
+}
+.site-search-item:focus ~.site-search-btn {
+    color: #9a9a9a;
 }
 
 /*------------------- H E A D E R -----------------*/
@@ -198,6 +227,7 @@ span {
     justify-content: center;
     height: auto;
     margin: 20px 0 0;
+    width: 100%;
 }
 #forwardArrow {
     right: 30px;
@@ -207,6 +237,7 @@ span {
 }
 .slider-arrows {
     background-color: rgba(80,80,80,0.4);
+    border-radius: 6px;
     display: none;
     width: 48px;
     height: 48px;
@@ -353,69 +384,61 @@ input[placeholder = "search field"]{
 }
 /*---------------G A L L E R Y ---------------------*/
 .gallery {
-    max-width: 816px;
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 20px 0 0;
+    z-index: 3;
 }
 .gallery-container {
-    width: 1632px;
-    height: 240px;
+    width: 1620px;
+    height: 260px;
     position: relative;
     transition: left 2s;
 }
 .gallery-wrapper {
     float: left;
-    width: 720px;
+    width: 810px;
     overflow: hidden;
 }
 .gallery-wrapper input[type="radio"] {
     display: none;
 }
-.gallery-arrow1,
-.gallery-arrow2 {
-    float: left;
+.gallery-arrows {
+    background-color: rgba(80,80,80,0.1);
+    border-radius: 6px;
+    display: flex;
+    margin: auto -60px;
+    width: 48px;
+    height: 48px;
+    z-index: 50;
+}
+.gallery-arrows:hover {
+    background-color: rgba(80,80,80,0.4);
 }
 input[id="gallery-first"]:checked ~ div.gallery-container {
     left: 0;
 }
 input[id="gallery-second"]:checked ~ div.gallery-container {
-    left: -720px;
+    left: -810px;
 }
 .gallery-img {
     float: left;
     border: 1px;
     border-radius: 6px;
     overflow: hidden;
-    width: 230px;
-    height: 230px;
+    width: 260px;
+    height: 260px;
     margin: 5px;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); /* black and white images*/
 }
 .gallery-img:hover {
-    /*border: 5px solid #12213a;*/
-    box-shadow:13px 10px 13px 0 gray;
+    /*border: 1px solid #12213a;*/
+    box-shadow:7px 5px 7px 0 gray;
     -webkit-filter: none;
-    filter: none; /* remove filter*/
-    /*-moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;*/
-    position: relative;
-    z-index: 2;
-}
-.gallery-img:active {
-    box-shadow: none;
-    -moz-transition: all 2s;
-    -o-transition: all 2s;
-    -webkit-transition: all 2s;
-    transition: all 2s;
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
-    position: relative;
-    z-index: 3;
+    filter: none;
 }
 /*------------------F O O T E R ---------------------------------*/
 .footer {
@@ -631,13 +654,13 @@ legend {
         border-left: 1px solid #9a9a9a;
     }
     .gallery {
-        max-width: 576px;
+        width: 540px;
     }
     .gallery-wrapper {
-        width: 480px;
+        width: 540px;
     }
     input[id="gallery-second"]:checked ~ div.gallery-container {
-        left: -480px;
+        left: -540px;
     }
 }
 
@@ -658,13 +681,14 @@ legend {
     .menu-Content {
         border-left: 1px solid #9a9a9a;
     }
+
     .gallery {
-        max-width: 336px;
+        max-width: 270px;
     }
     .gallery-wrapper {
-        width: 240px;
+        width: 270px;
     }
     input[id="gallery-second"]:checked ~ div.gallery-container {
-        left: -240px;
+        left: -270px;
     }
 }
