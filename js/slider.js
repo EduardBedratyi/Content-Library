@@ -26,8 +26,8 @@
  };
 
  window.addEventListener('load', function() {
- slider.init();
- setInterval(function() {
- slider.right();
+     slider.init();
+     setInterval(function() {
+     slider.right();
  },5000);
  });

@@ -2,7 +2,7 @@ jQuery(document).ready(function () {
     /* ----------------------search function---------------------*/
     $('#searchForm').submit( function (e) {
         e.preventDefault();
-        var item = $('.search-item').toLowerCase().val();
+        var item = $('.search-item').val();
         $("p:contains(" + item + ")").css("background-color", "#91b6cc");
     });
     /*----------------------------o u t p u t   f u n c t i o n s---------------------------*/

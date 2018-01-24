@@ -44,36 +44,6 @@ a:hover {
 ul {
     list-style: none;
 }
-/*--------------------------site-Search field --------*/
-.site-search-form {
-    border: 1px solid #12213a;
-    position: absolute;
-    max-width: 300px;
-    top: 15px;
-    right: 30px;
-}
-.site-search-btn {
-    color: #1b4564;
-    width: auto;
-}
-.site-search-form input {
-    border: 1px;
-    background: #1b4564;
-    text-align: right;
-}
-.site-search-item:hover {
-    background: #ccc;
-    border: 1px;
-    color: #1b4564;
-    font-weight: 400;
-}
-.site-search-item:focus {
-    background: #fff;
-}
-.site-search-item:focus ~.site-search-btn {
-    color: #9a9a9a;
-}
-
 /*------------------- H E A D E R -----------------*/
 .header {
     /*border: 1px solid red;*/
@@ -130,6 +100,39 @@ span {
 }
 .menu-soc-drop:hover {
     opacity: 1;
+}
+/*--------------------------site-Search field --------*/
+.site-search {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+}
+.site-search-form {
+    display: -webkit-flex;
+    display: flex;
+    border: 1px solid #12213a;
+    max-width: 300px;
+}
+.site-search.button {
+    visibility: hidden;
+}
+.site-search-form input {
+    border: 1px;
+    background: #1b4564;
+    text-align: right;
+}
+.site-search-item:hover {
+    background: #ccc;
+    border: 1px;
+    color: #1b4564;
+    font-weight: 400;
+}
+.site-search-item:focus {
+    background: #fff;
+}
+.site-search-item:focus ~.site-search.button {
+    visibility: visible;
 }
 /*---------------- C A T E G O R Y ------------------*/
 .container {
@@ -283,9 +286,9 @@ span {
     max-width: 860px;
     margin: 30px 0 20px;
 }
-.reset-btn,
+.reset.button,
 .search-item,
-.search-btn {
+.search.button {
     flex: 1 1 200px;
     border: 1px solid #9a9a9a;
     min-width: 203px;
@@ -296,7 +299,7 @@ span {
     min-width: 402px;
     text-align: center;
 }
-.search-btn {
+.search.button {
     text-transform: uppercase;
 }
 .search-item:hover {
@@ -342,7 +345,6 @@ input[placeholder = "search field"]{
     border: 5px solid #12213a;
     box-shadow:13px 10px 13px 0 gray;
 }
-
 .page > div p:hover {
     font-weight: 600;
 }
@@ -359,7 +361,7 @@ input[placeholder = "search field"]{
 .sort-button-block {
     width: 30%;
 }
-.sort-btn {
+.sort.button {
     display: none;
     height: 40px;
     border: 1px solid #9a9a9a;
@@ -453,7 +455,7 @@ input[id="gallery-second"]:checked ~ div.gallery-container {
     margin: 0 auto;
     padding: 50px 0;
 }
-/*-------------------M O D A L    W I N D O W----------*/
+/*-------------------M O D A L    W I N D O W ----------*/
 .modal-window {
     position: fixed;
     top: 0; /*thus it is stretched to the whole window */
@@ -470,26 +472,26 @@ input[id="gallery-second"]:checked ~ div.gallery-container {
     pointer-events: auto;
 }
 /*-------------------Internal modal window-----*/
-.wrapper,
+.wrapper-addContent,
 .wrapper-map,
 .wrapper-reg {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 10px;
+    flex-direction: column;
+    padding: 5px;
+    /*height: 100%;*/
     /*border-radius: 5px;
     background: rgba(0,0,0,0.2);
     box-shadow: 0 0 30px 2px;*/
     z-index: 50;
 }
 /*----------------------Cross symbol--------------------*/
-.close,
+.close-addContent,
 .close-map,
 .close-reg {
     position: relative;
     padding: 0;
-    top: -190px; /*Cross symbol positioning*/
-    left: 300px;
     width: 22px;
     height: 22px;
     /*border: 2px solid #ccc; /*Circle around symbol cross*/
@@ -504,7 +506,7 @@ input[id="gallery-second"]:checked ~ div.gallery-container {
     transition: background-color ease .7s;
 }
 /*----------------Adding cross to close modal window------*/
-.close:before,
+.close-addContent:before,
 .close-map:before,
 .close-reg:before {
     color: rgba(255, 255, 255, 0.9);
@@ -512,38 +514,46 @@ input[id="gallery-second"]:checked ~ div.gallery-container {
     text-shadow: 0 -1px rgba(0,0,0,0.9);
     font-size: 12px;
 }
-.close:hover,
+.close-addContent:hover,
 .close-map:hover,
 .close-reg:hover {
     background-color: rgba(252,20,0,0.8);
 }
-/*----------------------C O N T A C T S  in Modal Window------------------*/
-.wrapper-map,
-.wrapper-reg {
-    flex-direction: column;
-}
-.modal-wdw-map {
-    position: relative;
-    top: 15px;
-}
-.address {
-    border: 2px solid #9a9a9a;
-    background: rgba(18,33,58,0.7);
-    margin-top: 40px;
-    width: 418px;
-    color: #9a9a9a;
-    padding: 20px;
-}
-address:hover {
-    background: rgba(18,33,58,1);
-}
+/*---------------Cross symbol positioning--------------*/
 .close-map {
-    top: 0; /*Cross symbol positioning*/
-    left: 219px;
+    top: 0;
+    left: 150px;
 }
 .close-reg {
     top: 20px;
     left: 140px;
+}
+.close-addContent {
+    top: 20px;
+    left: 140px;
+}
+/*----------------------C O N T A C T S  in Modal Window------------------*/
+.map {
+    position: relative;
+    top: 5px;
+    height: 320px;
+}
+.map:active {
+    transform: scale(2.0);
+    z-index: 100;
+}
+.address {
+    position: relative;
+    border: 2px solid #9a9a9a;
+    background: rgba(18,33,58,0.7);
+    margin-top: 10px;
+    width: 320px;
+    color: #9a9a9a;
+    padding: 10px;
+    box-sizing: border-box;
+}
+address:hover {
+    background: rgba(18,33,58,1);
 }
 /*----------------------F O R M  in Modal Window------------------*/
 fieldset {
@@ -553,9 +563,12 @@ fieldset {
     align-items: center;
     margin-top: 20px;
 }
-fieldset > input,
-fieldset > label,
-fieldset > textarea{
+input[type = "text"],
+input[type = "email"],
+input[type = "file"],
+input[type = "tel"],
+input[type = "password"],
+textarea {
     border: #12213a;
     border-radius: 2px;
     margin-top: 5px;
@@ -565,9 +578,6 @@ fieldset > textarea{
     background: #1b4564;
     color: #dcdcdc;
     font-size: 0.8em;
-}
-.regForm {
-    margin-top: 40px;
 }
 input[type = "text"]:hover,
 input[type = "email"]:hover,
@@ -583,7 +593,7 @@ input[type = "text"]:focus,
 input[type = "email"]:focus,
 input[type = "file"]:focus,
 input[type = "tel"]:focus,
-input[type = "tel"]:focus,
+input[type = "password"]:focus,
 textarea:focus {
     background: #fff;
     color: #9a9a9a;
@@ -591,11 +601,27 @@ textarea:focus {
 legend {
     color: #ccc;
 }
+.error input[type = "text"],
+.error input[type = "email"],
+.error input[type = "file"],
+.error input[type = "tel"],
+.error input[type = "password"],
+.error textarea {
+    border: 2px solid red;
+}
+.error {
+    color: red;
+}
 /*-------------------------B U T T O N S--------------------------*/
-.button,
-.search-btn,
-.reset-btn,
-.sort-btn{
+.regForm.button,
+.addContent.button {
+    border: #12213a;
+    margin-top: 5px;
+    text-align: center;
+    width: 300px;
+    height: 40px;
+}
+.button {
     background: linear-gradient(#1b4564 ,#12213a);
     color: #9a9a9a;
     font-size: 15px;
@@ -603,20 +629,14 @@ legend {
     text-shadow: -1px 1px 2px black;
     /*opacity:0.7;*/
 }
-.button:hover,
-.search-btn:hover,
-.reset-btn:hover,
-.sort-btn:hover {
+.button:hover {
     cursor: pointer;
     color: #fff;
     box-shadow:9px 6px 9px 0 black;
     /*font-weight:bold;*/
     /*opacity:1;*/
 }
-.button:active,
-.search-btn:active,
-.reset-btn:active,
-.sort-btn:active {
+.button:active {
     box-shadow:4px 3px 6px 0 black;
     font-size: 14px;
     text-decoration: none;

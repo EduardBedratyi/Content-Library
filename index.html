@@ -11,12 +11,91 @@
 	<script src="js/addContent.js"></script>
 	<script src="js/content.js"></script>
 	<script src="js/slider.js"></script>
+	<!--<script>
+        window.addEventListener("load", function () {
+            window.content = {
+                audio: [{
+                    userName: 'Edd',
+                    email: 'edd@mail.ru',
+                    country: 'China',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp3"',
+                    contentType: 'audio',
+                    textContent: 'first record of audio'
+                }, {
+                    userName: 'Sofia',
+                    email: 'dd@mail.ru',
+                    country: 'Belorussia',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp3"',
+                    contentType: 'audio',
+                    textContent: 'second record of audio'
+                }, {
+                    userName: 'Mane',
+                    email: 'dud@mail.ru',
+                    country: 'Moldova',
+                    category: 'music',
+                    file: 'src="audio/depecheMode.mp3"',
+                    contentType: 'audio',
+                    textContent: 'third record of audio'
+                }],
+                video: [{
+                    userName: 'Helen',
+                    email: 'ee@mail.ru',
+                    country: 'Russia',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp4"',
+                    contentType: 'video',
+                    textContent: 'first record of video'
+                }, {
+                    userName: 'Roman',
+                    email: 'rr@mail.ru',
+                    country: 'Germany',
+                    category: 'music',
+                    file: 'src="audio/guf_naPol.mp4"',
+                    contentType: 'video',
+                    textContent: 'second video record'
+                }, {
+                    userName: 'Eva',
+                    email: 'eva@mail.ru',
+                    country: 'Kazahstan',
+                    category: 'music',
+                    file: 'src="audio/leps.mp3"',
+                    contentType: 'video',
+                    textContent: 'third record of video'
+                }],
+                text: [{
+                    userName: 'Vladimir',
+                    email: 'vv@mail.ru',
+                    country: 'Ukraine',
+                    category: 'music',
+                    file: 'src="audio/guf.txt"',
+                    contentType: 'text',
+                    textContent: 'first record of text'
+                }, {
+                    userName: 'Lilia',
+                    email: 'll@mail.ru',
+                    country: 'USA',
+                    category: 'music',
+                    file: 'src="audio/naPol.doc"',
+                    contentType: 'text',
+                    textContent: 'second record of text'
+                }, {userName: 'Evgenia',
+                    email: 'eevg@mail.ru',
+                    country: 'Canada',
+                    category: 'music',
+                    file: 'src="audio/Bumbox.doc"',
+                    contentType: 'text',
+                    textContent: 'third record of text'
+                }]
+            };
+        });
+	</script>-->
 </head>
 <body>
 <!------------------------Header with Logo Registration and Social Networks -->
 <header class="header">
-	<!-----------------------------------site-Search field -------------------------------->
-		<h1 class="logo">
+	<h1 class="logo">
 		<a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
 	</h1>
 	<ul class="menu">
@@ -36,28 +115,35 @@
 		</li>
 	</ul>
 </header>
-<form name="site-search-form" class="site-search-form" id="site-search">
-	<input type="search" name="search-item" class="site-search-item" placeholder="search">
-	<input type="reset" value="reset" class="site-search-btn">
-	<input type="button" class="site-search-btn" value="search">
-</form>
 <!-------------------------------------Navigation Menu --------------------------->
 
 <!------------------------ M O D A L    W I N D O W--------------------------------->
 <div id="modal-addContent" class="modal-window">
-	<div class="wrapper"><!---------------Internal modal window -------------------->
-		<a href="#" title="закрыть" class="close"></a>
+	<div class="wrapper-addContent"><!---------------Internal modal window -------------------->
+		<a href="#" title="закрыть" class="close-addContent"></a>
 			<form name="addContent" id="addContent">
 				<fieldset>
 					<legend>Please fill in the fields to add Content</legend>
-					<input type="text" name="userName" class="user-name" placeholder="Please, enter Your name">
-					<input type="email" name="email" class="user-email" placeholder="Please, enter Your email" required>
-					<input type="text" name="country" class="country" placeholder="Please, enter Your country">
-					<input type="text" name="category" class="addCat-name" value="" placeholder="Please, enter Category`s name">
-					<input type="file" name="file" class="addFile-name" value="" placeholder="Please, load a File" id="addFile">
-					<textarea name="message" class="textContent" placeholder="Please, enter your text" id="textContent"></textarea>
-					<input type="reset" name="reset" class="button" value="reset">
-					<input type="submit" name="submit" class="button" value="submit" id="addContent-text-submit">
+					<div>
+						<input type="text" name="userName" placeholder="Please, enter Your name">
+					</div>
+					<div>
+						<input type="email" name="email" placeholder="Please, enter Your email">
+					</div>
+					<div>
+						<input type="text" name="country" placeholder="Please, enter Your country">
+					</div>
+					<div>
+						<input type="text" name="category" value="" placeholder="Please, enter Category`s name">
+					</div>
+					<div>
+						<input type="file" name="file" value="" placeholder="Please, load a File" id="addFile">
+					</div>
+					<div>
+						<textarea name="message" placeholder="Please, enter your text" id="textContent"></textarea>
+					</div>
+					<input type="reset" name="reset" class="addContent button" value="reset">
+					<input type="submit" name="submit" class="addContent button" value="submit" id="addContent-submit">
 				</fieldset>
 			</form>
 	</div>
@@ -65,9 +151,7 @@
 <div id="modal-map" class="modal-window">
 	<div class="wrapper-map"><!---------------Internal modal window -------------------->
 		<a href="#" title="закрыть" class="close-map"></a>
-		<div class="modal-wdw-map">
-			<img src="images/elements/Glubochitskaya_72.png" alt="Ukraine, Kiev, Glubochitskaya street 72, Podol.">
-		</div>
+		<img src="images/elements/Glubochitskaya_72.png" class="map" alt="Ukraine, Kiev, Glubochitskaya street 72, Podol.">
 		<address class="address">Ukraine, Kiev, Glubochitskaya street 72, Podol.<br>
 			www.vitrum.com.ua<br>
 			www.витраж.укр<br>
@@ -80,19 +164,43 @@
 <div id="modal-reg" class="modal-window">
 	<div class="wrapper-reg"><!---------------Internal modal window-------------------->
 		<a href="#" title="закрыть" class="close-reg"></a>
-		<form name="regForm" id="regForm">
+		<form name="regForm" class="regForm" id="regForm">
 			<fieldset>
 				<legend>Please fill in the fields to registration</legend>
-				<input type="text" name="userName" class="registration" placeholder="Please, enter Your name or nickname">
-				<input type="email" name="email" class="registration" placeholder="Please, enter Your email" required>
-				<input type="tel" name="phone" class="registration" placeholder="Please, enter Your contact phone number" required>
-				<input type="password" name="password" class="registration" value="" placeholder="Please, enter password">
-				<input type="reset" name="reset" class="button" value="reset">
-				<input type="submit" name="submit" class="button" value="submit" id="reg-submit">
+				<div>
+					<input type="text" name="userName" placeholder="Please, enter Your name or nickname">
+				</div>
+				<div>
+					<input type="email" name="email" placeholder="Please, enter Your email">
+				</div>
+				<div>
+					<input type="tel" name="tel" placeholder="Please, enter Your contact phone number">
+				</div>
+				<div>
+					<input type="password" name="password" value="" placeholder="Please, enter password">
+				</div>
+				<div>
+					<input type="password" name="password2" value="" placeholder="Please, repeat password">
+				</div>
+				<div>
+					<textarea name="message" placeholder="enter your text"></textarea>
+				</div>
+				<input type="reset" name="reset" class="regForm button" value="reset">
+				<input type="submit" name="submit" class="regForm button" value="submit" id="reg-submit">
 			</fieldset>
 		</form>
 	</div>
 </div>
+<!-----------------------------------site-Search field -------------->
+<div class="site-search">
+	<div></div>
+	<form name="site-search-form" class="site-search-form" id="site-search">
+		<input type="search" name="search-item" class="site-search-item" placeholder="search">
+		<input type="reset" value="reset" class="site-search button">
+		<input type="button" class="site-search button" value="search">
+	</form>
+</div>
+<!---------------------------------add Content discover Content------------------------>
 <section class="container">
     <nav class="nav">
         <ul class="nav-content">
@@ -160,18 +268,18 @@
 	<!-----------------------------------Search field -------------------------------->
 	<form name="search-form" class="search-form" id="searchForm">
 		<input type="search" name="search-item" class="search-item" placeholder="search content below">
-		<input type="reset" value="reset" class="reset-btn">
-		<button class="search-btn">search</button>
+		<input type="reset" value="reset" class="reset button">
+		<button class="search button">search</button>
 	</form>
 </section>
 <main class="main">
 	<!-----------------------------------CONTENT -------------------------------------->
     <section class="content">
 		<div class="sort-button-block">
-			<button class="sort-btn" id="sortAllByUserName">names of all content A to Z</button>
-			<button class="sort-btn" id="sortVideoByUserName">names of Video content A to Z</button>
-			<button class="sort-btn" id="sortAudioByUserName">names of Audio content A to Z</button>
-			<button class="sort-btn" id="sortTextByUserName">names of Text content A to Z</button>
+			<button class="sort button" id="sortAllByUserName">names of all content A to Z</button>
+			<button class="sort button" id="sortVideoByUserName">names of Video content A to Z</button>
+			<button class="sort button" id="sortAudioByUserName">names of Audio content A to Z</button>
+			<button class="sort button" id="sortTextByUserName">names of Text content A to Z</button>
 		</div>
 		<div class="page">Content field. To see content please choose discover Content on the top.
 
